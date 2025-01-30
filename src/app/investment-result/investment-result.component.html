@@ -1,4 +1,26 @@
+@if(isUserEntered){
 <table>
-    
-    <p>Please enter some values and press "Calculate"</p>
+  <thead>
+    <tr>
+      <th scope="col">Year</th>
+      <th scope="col">Investment Value</th>
+      <th scope="col">Interest (Year)</th>
+      <th scope="col">Total Interest</th>
+      <th scope="col">Invested Capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(result of userInvestmentResult; track result.year){
+    <tr>
+      <td>{{ result.year }}</td>
+      <td>{{ result.valueEndOfYear | currency }}</td>
+      <td>{{ result.interest | currency }}</td>
+      <td>{{ result.totalInterest | currency }}</td>
+      <td>{{ result.totalAmountInvested | currency }}</td>
+    </tr>
+    }
+  </tbody>
 </table>
+} @else {
+<p>Please enter valid investment amount and press "Calculate"</p>
+}
