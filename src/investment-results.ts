@@ -5,10 +5,7 @@ import { UserInput } from "./app/user-input/user-input.model";
 
 export function calculateInvestmentResults(userInput: UserInput) {
   const annualData = [];
-  let initialInvestment = userInput.initialInvestment;
-  let expectedReturn = userInput.expectedReturn;
-  let annualInvestment = userInput.annualInvestment;
-  let duration = userInput.duration;
+  const {initialInvestment, expectedReturn,annualInvestment, duration} = userInput
   
   let investmentValue = initialInvestment;
   

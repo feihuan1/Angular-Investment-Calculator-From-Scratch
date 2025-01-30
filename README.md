@@ -1,3 +1,3 @@
-# EssentialsPractice
-
-run: npm install -> ng serve
+# run command
+npm install 
+ng serve

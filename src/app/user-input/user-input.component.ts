@@ -21,8 +21,33 @@ export class UserInputComponent {
     duration: 10
   } 
 
+  validateDuration() {
+    const inputs: number[] = Object.values(this.userInput)
+
+    if(this.userInput.duration > 100) {
+      this.userInput.duration = 100
+      return false
+    }
+
+    for(let num of inputs) {
+      if(num < 0) {
+        return false
+      }
+    }
+    
+    return true
+  }
+
   onSubmit() {
+    const isValid = this.validateDuration()
+    console.log(isValid)
+    if(!isValid){
+      alert("Plz use common sense to enter some valid input!!!")
+      return
+    }
+
     this.investmentData.emit(this.userInput)
+
     this.userInput = {
       initialInvestment: 0,
       annualInvestment: 0,

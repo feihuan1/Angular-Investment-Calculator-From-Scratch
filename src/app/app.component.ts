@@ -31,9 +31,13 @@ export class AppComponent {
 
     this.isUserEntered = data.initialInvestment || data.annualInvestment ? true : false
 
+    if(!this.isUserEntered){
+      alert("天上不会掉馅饼")
+      return
+    }
+
     this.userInvestmentResult = [...calculateInvestmentResults(data)];
 
-    console.log(this.isUserEntered);
     console.log(this.userInvestmentResult);
   }
 }
